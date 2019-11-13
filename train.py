@@ -11,14 +11,14 @@ from time import strftime, localtime
 import random
 import numpy
 
-from pytorch_transformers import BertModel
+from pytorch_transformers import BertModel, RobertaModel
 
 from sklearn import metrics
 import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader, random_split
 
-from data_utils import build_tokenizer, build_embedding_matrix, Tokenizer4Bert, ABSADataset
+from data_utils import build_tokenizer, build_embedding_matrix, Tokenizer4Bert, Tokenizer4RoBerta, ABSADataset
 
 from models import LSTM, IAN, MemNet, RAM, TD_LSTM, Cabasc, ATAE_LSTM, TNet_LF, AOA, MGAN, LCF_BERT
 from models.aen import CrossEntropyLoss_LSR, AEN_BERT
@@ -33,7 +33,11 @@ class Instructor:
     def __init__(self, opt):
         self.opt = opt
 
-        if 'bert' in opt.model_name:
+        if 'roberta' in opt.model_name:
+            tokenizer = Tokenizer4RoBerta(opt.max_seq_len, opt.pretrained_bert_name)
+            roberta = RobertaModel.from_pretrained(opt.pretrained_bert_name)
+            self.model = opt.model_class(roberta, opt).to(opt.device)
+        elif 'bert' in opt.model_name:
             tokenizer = Tokenizer4Bert(opt.max_seq_len, opt.pretrained_bert_name)
             bert = BertModel.from_pretrained(opt.pretrained_bert_name)
             self.model = opt.model_class(bert, opt).to(opt.device)
@@ -223,6 +227,7 @@ def main():
         'mgan': MGAN,
         'bert_spc': BERT_SPC,
         'aen_bert': AEN_BERT,
+        'aen_roberta': AEN_BERT,
         'lcf_bert': LCF_BERT,
         # default hyper-parameters for LCF-BERT model is as follws:
         # lr: 2e-5
@@ -257,6 +262,7 @@ def main():
         'mgan': ['text_raw_indices', 'aspect_indices', 'text_left_indices'],
         'bert_spc': ['text_bert_indices', 'bert_segments_ids'],
         'aen_bert': ['text_raw_bert_indices', 'aspect_bert_indices'],
+        'aen_roberta': ['text_raw_bert_indices', 'aspect_bert_indices'],
         'lcf_bert': ['text_bert_indices', 'bert_segments_ids', 'text_raw_bert_indices', 'aspect_bert_indices'],
     }
     initializers = {

@@ -8,7 +8,7 @@ import pickle
 import numpy as np
 import torch
 from torch.utils.data import Dataset
-from pytorch_transformers import BertTokenizer
+from pytorch_transformers import BertTokenizer, RobertaTokenizer
 
 
 def build_tokenizer(fnames, max_seq_len, dat_fname):
@@ -115,6 +115,21 @@ class Tokenizer4Bert:
 
     def text_to_sequence(self, text, reverse=False, padding='post', truncating='post'):
         sequence = self.tokenizer.convert_tokens_to_ids(self.tokenizer.tokenize(text))
+        if len(sequence) == 0:
+            sequence = [0]
+        if reverse:
+            sequence = sequence[::-1]
+        return pad_and_truncate(sequence, self.max_seq_len, padding=padding, truncating=truncating)
+
+
+class Tokenizer4RoBerta:
+    def __init__(self, max_seq_len, pretrained_roberta_name):
+        self.tokenizer = RobertaTokenizer.from_pretrained(pretrained_roberta_name)
+        self.max_seq_len = max_seq_len
+
+    def text_to_sequence(self, text, reverse=False, padding='post', truncating='post'):
+        # sequence = self.tokenizer.convert_tokens_to_ids(self.tokenizer.tokenize(text))
+        sequence = self.tokenizer.encode(text, add_special_tokens=True)
         if len(sequence) == 0:
             sequence = [0]
         if reverse:
