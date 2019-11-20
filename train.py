@@ -80,7 +80,7 @@ class Instructor:
 
     def _reset_params(self):
         for child in self.model.children():
-            if type(child) != BertModel:  # skip bert params
+            if type(child) != BertModel and type(child) != RobertaModel:  # skip bert params
                 for p in child.parameters():
                     if p.requires_grad:
                         if len(p.shape) > 1:
