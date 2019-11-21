@@ -119,10 +119,14 @@ class AEN_BERT(nn.Module):
 
         context_len = torch.tensor(context_len, dtype=torch.float).to(self.opt.device)
         target_len = torch.tensor(target_len, dtype=torch.float).to(self.opt.device)
+        #
+        # hc_mean = torch.div(torch.sum(hc, dim=1), context_len.view(context_len.size(0), 1))
+        # ht_mean = torch.div(torch.sum(ht, dim=1), target_len.view(target_len.size(0), 1))
+        # s1_mean = torch.div(torch.sum(s1, dim=1), context_len.view(context_len.size(0), 1))
 
-        hc_mean = torch.div(torch.sum(hc, dim=1), context_len.view(context_len.size(0), 1))
-        ht_mean = torch.div(torch.sum(ht, dim=1), target_len.view(target_len.size(0), 1))
-        s1_mean = torch.div(torch.sum(s1, dim=1), context_len.view(context_len.size(0), 1))
+        hc_mean = torch.max(hc, dim=1)[0]
+        ht_mean = torch.max(ht, dim=1)[0]
+        s1_mean = torch.max(s1, dim=1)[0]
 
         x = torch.cat((hc_mean, s1_mean, ht_mean), dim=-1)
         out = self.dense(x)
