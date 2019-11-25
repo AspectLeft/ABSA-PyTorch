@@ -24,6 +24,7 @@ aen_bert_simple-laptop-191124-1807.log
 > val_acc: 0.7367, val_f1: 0.7005
 >> test_acc: 0.7539, test_f1: 0.6860
 ```
+![aen_bert_simple](assets/aen_bert_simple.PNG)
 ## Twitter
 ##### AEN_BERT_SIMPLE (removed 2/3 parts)
 aen_bert_simple-twitter-191124-1823.log
