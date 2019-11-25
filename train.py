@@ -21,7 +21,7 @@ from torch.utils.data import DataLoader, random_split
 from data_utils import build_tokenizer, build_embedding_matrix, Tokenizer4Bert, Tokenizer4RoBerta, ABSADataset
 
 from models import LSTM, IAN, MemNet, RAM, TD_LSTM, Cabasc, ATAE_LSTM, TNet_LF, AOA, MGAN, LCF_BERT
-from models.aen import CrossEntropyLoss_LSR, AEN_BERT
+from models.aen import CrossEntropyLoss_LSR, AEN_BERT, AEN_BERT_SIMPLE
 from models.bert_spc import BERT_SPC
 
 logger = logging.getLogger()
@@ -228,6 +228,7 @@ def main():
         'bert_spc': BERT_SPC,
         'aen_bert': AEN_BERT,
         'aen_roberta': AEN_BERT,
+        'aen_bert_simple': AEN_BERT_SIMPLE,
         'lcf_bert': LCF_BERT,
         # default hyper-parameters for LCF-BERT model is as follws:
         # lr: 2e-5
@@ -263,6 +264,7 @@ def main():
         'bert_spc': ['text_bert_indices', 'bert_segments_ids'],
         'aen_bert': ['text_raw_bert_indices', 'aspect_bert_indices'],
         'aen_roberta': ['text_raw_bert_indices', 'aspect_bert_indices'],
+        'aen_bert_simple': ['text_raw_bert_indices', 'aspect_bert_indices'],
         'lcf_bert': ['text_bert_indices', 'bert_segments_ids', 'text_raw_bert_indices', 'aspect_bert_indices'],
     }
     initializers = {
