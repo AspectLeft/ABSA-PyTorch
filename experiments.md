@@ -25,6 +25,12 @@ aen_bert_simple-laptop-191124-1807.log
 >> test_acc: 0.7539, test_f1: 0.6860
 ```
 ![aen_bert_simple](assets/aen_bert_simple.PNG)
+##### AEN_BERT_SIMPLE, ignoring target
+aen_bert_simple-laptop-191124-2029.log
+```shell script
+> val_acc: 0.7696, val_f1: 0.7165
+>> test_acc: 0.7774, test_f1: 0.7318
+```
 ## Twitter
 ##### AEN_BERT_SIMPLE (removed 2/3 parts)
 aen_bert_simple-twitter-191124-1823.log
@@ -32,10 +38,22 @@ aen_bert_simple-twitter-191124-1823.log
 > val_acc: 0.6676, val_f1: 0.6571
 >> test_acc: 0.7254, test_f1: 0.7100
 ```
+##### AEN_BERT_SIMPLE, ignoring target
+aen_bert_simple-twitter-191124-2045.log
+```shell script
+> val_acc: 0.6344, val_f1: 0.6328
+>> test_acc: 0.7283, test_f1: 0.7187
+```
 ##Restaurant
 ##### AEN_BERT_SIMPLE (removed 2/3 parts)
 aen_bert_simple-restaurant-191124-1849.log
 ```shell script
 > val_acc: 0.7920, val_f1: 0.6477
 >> test_acc: 0.8045, test_f1: 0.6770
+```
+##### AEN_BERT_SIMPLE, ignoring target
+aen_bert_simple-restaurant-191124-2115.log
+```shell script
+> val_acc: 0.7857, val_f1: 0.6735
+>> test_acc: 0.8107, test_f1: 0.6894
 ```
