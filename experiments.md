@@ -31,6 +31,24 @@ aen_bert_simple-laptop-191124-2029.log
 > val_acc: 0.7696, val_f1: 0.7165
 >> test_acc: 0.7774, test_f1: 0.7318
 ```
+##### AEN_BERT_SIMPLE, n_head=4
+aen_bert_simple-laptop-191127-1028.log
+```shell script
+> val_acc: 0.7116, val_f1: 0.6707
+>> test_acc: 0.7774, test_f1: 0.7278
+```
+##### AEN_BERT_SIMPLE, n_head=2
+aen_bert_simple-laptop-191127-1040.log
+```shell script
+> val_acc: 0.7727, val_f1: 0.7164
+>> test_acc: 0.7884, test_f1: 0.7480
+```
+##### AEN_BERT_SIMPLE, n_head=1
+aen_bert_simple-laptop-191127-1054.log
+```shell script
+> val_acc: 0.7900, val_f1: 0.7423
+>> test_acc: 0.7900, test_f1: 0.7423
+```
 ## Twitter
 ##### AEN_BERT_SIMPLE (removed 2/3 parts)
 aen_bert_simple-twitter-191124-1823.log
