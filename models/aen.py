@@ -138,7 +138,7 @@ class AEN_BERT_SIMPLE(nn.Module):
         self.dropout = nn.Dropout(opt.dropout)
 
         # self.attn_k = Attention(opt.bert_dim, out_dim=opt.hidden_dim, n_head=8, score_function='mlp', dropout=opt.dropout)
-        self.attn_q = Attention(opt.bert_dim, out_dim=opt.hidden_dim, n_head=1, score_function='mlp', dropout=opt.dropout)
+        self.attn_q = Attention(opt.bert_dim, out_dim=opt.hidden_dim, n_head=24, score_function='mlp', dropout=opt.dropout)
         # self.ffn_c = PositionwiseFeedForward(opt.hidden_dim, dropout=opt.dropout)
         self.ffn_t = PositionwiseFeedForward(opt.hidden_dim, dropout=opt.dropout)
 

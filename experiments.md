@@ -31,6 +31,18 @@ aen_bert_simple-laptop-191124-2029.log
 > val_acc: 0.7696, val_f1: 0.7165
 >> test_acc: 0.7774, test_f1: 0.7318
 ```
+##### AEN_BERT_SIMPLE, n_head=16
+aen_bert_simple-laptop-191127-1147.log
+```shell script
+> val_acc: 0.7476, val_f1: 0.7037
+>> test_acc: 0.7837, test_f1: 0.7421
+```
+##### AEN_BERT_SIMPLE, n_head=24
+aen_bert_simple-laptop-191127-1208.log
+```shell script
+> val_acc: 0.7571, val_f1: 0.7037
+>> test_acc: 0.7696, test_f1: 0.7221
+```
 ##### AEN_BERT_SIMPLE, n_head=4
 aen_bert_simple-laptop-191127-1028.log
 ```shell script
