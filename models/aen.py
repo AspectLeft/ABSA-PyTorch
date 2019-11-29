@@ -138,13 +138,14 @@ class AEN_BERT_SIMPLE(nn.Module):
         self.dropout = nn.Dropout(opt.dropout)
 
         # self.attn_k = Attention(opt.bert_dim, out_dim=opt.hidden_dim, n_head=8, score_function='mlp', dropout=opt.dropout)
-        self.attn_q = Attention(opt.bert_dim, out_dim=opt.hidden_dim, n_head=24, score_function='mlp', dropout=opt.dropout)
+        self.attn_q = Attention(opt.bert_dim, out_dim=opt.hidden_dim, n_head=8, score_function='mlp', dropout=opt.dropout)
         # self.ffn_c = PositionwiseFeedForward(opt.hidden_dim, dropout=opt.dropout)
         self.ffn_t = PositionwiseFeedForward(opt.hidden_dim, dropout=opt.dropout)
 
+        self.lstm = nn.LSTM(opt.hidden_dim, 600, 1, batch_first=True)
         # self.attn_s1 = Attention(opt.hidden_dim, n_head=8, score_function='mlp', dropout=opt.dropout)
 
-        self.dense = nn.Linear(opt.hidden_dim, opt.polarities_dim)
+        self.dense = nn.Linear(600, opt.polarities_dim)
 
     def forward(self, inputs):
         context, target = inputs[0], inputs[1]
@@ -168,7 +169,9 @@ class AEN_BERT_SIMPLE(nn.Module):
         target_len = torch.tensor(target_len, dtype=torch.float).to(self.opt.device)
 
         # hc_mean = torch.div(torch.sum(hc, dim=1), context_len.view(context_len.size(0), 1))
-        ht_mean = torch.div(torch.sum(ht, dim=1), target_len.view(target_len.size(0), 1))
+        # ht_mean = torch.div(torch.sum(ht, dim=1), target_len.view(target_len.size(0), 1))
+        ht_mean, _ = self.lstm(ht)
+        ht_mean = ht_mean[:, -1, :]
         # s1_mean = torch.div(torch.sum(s1, dim=1), context_len.view(context_len.size(0), 1))
 
         # x = torch.cat((hc_mean, s1_mean, ht_mean), dim=-1)

@@ -61,6 +61,12 @@ aen_bert_simple-laptop-191127-1054.log
 > val_acc: 0.7900, val_f1: 0.7423
 >> test_acc: 0.7900, test_f1: 0.7423
 ```
+##### AEN_BERT_SIMPLE, replaced pooling with LSTM(,600)
+aen_bert_simple-laptop-191128-1521.log
+```shell script
+> val_acc: 0.7367, val_f1: 0.6475
+>> test_acc: 0.7602, test_f1: 0.6910
+```
 ## Twitter
 ##### AEN_BERT_SIMPLE (removed 2/3 parts)
 aen_bert_simple-twitter-191124-1823.log
