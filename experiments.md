@@ -67,6 +67,18 @@ aen_bert_simple-laptop-191128-1521.log
 > val_acc: 0.7367, val_f1: 0.6475
 >> test_acc: 0.7602, test_f1: 0.6910
 ```
+##### AEN_BERT_SIMPLE, with CDM
+aen_bert_simple-laptop-191201-1816.log
+```shell script
+> val_acc: 0.7712, val_f1: 0.7319
+>> test_acc: 0.7884, test_f1: 0.7591
+```
+##### AEN_BERT_SIMPLE, with CDW
+aen_bert_simple-laptop-191201-1830.log
+```shell script
+> val_acc: 0.7712, val_f1: 0.7169
+>> test_acc: 0.7774, test_f1: 0.7327
+```
 ## Twitter
 ##### AEN_BERT_SIMPLE (removed 2/3 parts)
 aen_bert_simple-twitter-191124-1823.log
