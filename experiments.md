@@ -139,6 +139,60 @@ aen_simple-laptop-191202-2111.log
 > val_acc: 0.6724, val_f1: 0.6061
 >> test_acc: 0.6959, test_f1: 0.5600
 ```
+##### AEN_SIMPLE, lstm_hid=300, n_head=16
+aen_simple-laptop-191203-0938.log
+```shell script
+> val_acc: 0.7618, val_f1: 0.7195
+>> test_acc: 0.7806, test_f1: 0.7483
+```
+##### AEN_SIMPLE, lstm_hid=300, lstm_layer=2
+aen_simple-laptop-191203-0952.log
+```shell script
+> val_acc: 0.7398, val_f1: 0.6612
+>> test_acc: 0.7696, test_f1: 0.7250
+```
+##### AEN_SIMPLE, lstm_hid=300, lstm_layer=3
+aen_simple-laptop-191203-1006.log
+```shell script
+> val_acc: 0.6082, val_f1: 0.4498
+>> test_acc: 0.7038, test_f1: 0.5968
+```
+##### AEN_SIMPLE, lstm_hid=300, lstm_layer=1, n_head=1
+aen_simple-laptop-191203-1017.log
+```shell script
+> val_acc: 0.7618, val_f1: 0.7291
+>> test_acc: 0.7931, test_f1: 0.7609
+```
+##### AEN_SIMPLE, lstm_hid=300, lstm_layer=1, n_head=2
+aen_simple-laptop-191203-1028.log
+```shell script
+> val_acc: 0.7633, val_f1: 0.7136
+>> test_acc: 0.7837, test_f1: 0.7371
+```
+##### AEN_SIMPLE, lstm_hid=300, lstm_layer=1, n_head=4
+aen_simple-laptop-191203-1040.log
+```shell script
+> val_acc: 0.7680, val_f1: 0.7188
+>> test_acc: 0.7821, test_f1: 0.7487
+```
+##### AEN_SIMPLE, lstm_hid=300, lstm_layer=1, n_head=16
+aen_simple-laptop-191203-1051.log
+```shell script
+> val_acc: 0.7524, val_f1: 0.6793
+>> test_acc: 0.7790, test_f1: 0.7388
+```
+##### AEN_SIMPLE, lstm_hid=300, lstm_layer=1, n_head=24
+aen_simple-laptop-191203-1103.log
+```shell script
+> val_acc: 0.7335, val_f1: 0.6973
+>> test_acc: 0.7759, test_f1: 0.7306
+``` 
+##### AEN_SIMPLE, roberta, lstm_hid=300, lstm_layer=1, n_head=1
+aen_simple-laptop-191203-1116.log
+```shell script
+> val_acc: 0.7696, val_f1: 0.7191
+>> test_acc: 0.7868, test_f1: 0.7409
+```
 ## Twitter
 ##### AEN_BERT_SIMPLE (removed 2/3 parts)
 aen_bert_simple-twitter-191124-1823.log
