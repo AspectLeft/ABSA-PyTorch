@@ -21,7 +21,7 @@ from torch.utils.data import DataLoader, random_split
 from data_utils import build_tokenizer, build_embedding_matrix, Tokenizer4Bert, Tokenizer4RoBerta, ABSADataset
 
 from models import LSTM, IAN, MemNet, RAM, TD_LSTM, Cabasc, ATAE_LSTM, TNet_LF, AOA, MGAN, LCF_BERT
-from models.aen import CrossEntropyLoss_LSR, AEN_BERT, AEN_BERT_SIMPLE
+from models.aen import CrossEntropyLoss_LSR, AEN_BERT, AEN_BERT_SIMPLE, AEN_SIMPLE
 from models.bert_spc import BERT_SPC
 
 logger = logging.getLogger()
@@ -33,7 +33,16 @@ class Instructor:
     def __init__(self, opt):
         self.opt = opt
 
-        if 'roberta' in opt.model_name:
+        if 'aen_simple' == opt.model_name:
+            if 'bert' == opt.bert_type:
+                tokenizer = Tokenizer4Bert(opt.max_seq_len, opt.pretrained_bert_name)
+                bert = BertModel.from_pretrained(opt.pretrained_bert_name)
+                self.model = opt.model_class(bert, opt).to(opt.device)
+            elif 'roberta' == opt.bert_type:
+                tokenizer = Tokenizer4RoBerta(opt.max_seq_len, opt.pretrained_bert_name)
+                roberta = RobertaModel.from_pretrained(opt.pretrained_bert_name)
+                self.model = opt.model_class(roberta, opt).to(opt.device)
+        elif 'roberta' in opt.model_name:
             tokenizer = Tokenizer4RoBerta(opt.max_seq_len, opt.pretrained_bert_name)
             roberta = RobertaModel.from_pretrained(opt.pretrained_bert_name)
             self.model = opt.model_class(roberta, opt).to(opt.device)
@@ -193,6 +202,7 @@ def main():
     parser.add_argument('--log_step', default=5, type=int)
     parser.add_argument('--embed_dim', default=300, type=int)
     parser.add_argument('--hidden_dim', default=300, type=int)
+    parser.add_argument('--bert_type', default='bert', type=str)
     parser.add_argument('--bert_dim', default=768, type=int)
     parser.add_argument('--pretrained_bert_name', default='bert-base-uncased', type=str)
     parser.add_argument('--max_seq_len', default=80, type=int)
@@ -204,6 +214,12 @@ def main():
     # The following parameters are only valid for the lcf-bert model
     parser.add_argument('--local_context_focus', default='cdm', type=str, help='local context focus mode, cdw or cdm')
     parser.add_argument('--SRD', default=3, type=int, help='semantic-relative-distance, see the paper of LCF-BERT model')
+    # The following parameters are only valid for the aen-simple model
+    parser.add_argument('--lstm_hid', default=600, type=int)
+    parser.add_argument('--lstm_layer', default=1, type=int)
+    parser.add_argument('--lstm_bidir', dest='lstm_bidir', action='store_true')
+    parser.set_defaults(lstm_bidir=False)
+    parser.add_argument('--mha_heads', default=8, type=int)
     opt = parser.parse_args()
 
     if opt.seed is not None:
@@ -229,6 +245,7 @@ def main():
         'aen_bert': AEN_BERT,
         'aen_roberta': AEN_BERT,
         'aen_bert_simple': AEN_BERT_SIMPLE,
+        'aen_simple': AEN_SIMPLE,
         'lcf_bert': LCF_BERT,
         # default hyper-parameters for LCF-BERT model is as follws:
         # lr: 2e-5
@@ -265,6 +282,7 @@ def main():
         'aen_bert': ['text_raw_bert_indices', 'aspect_bert_indices'],
         'aen_roberta': ['text_raw_bert_indices', 'aspect_bert_indices'],
         'aen_bert_simple': ['text_raw_bert_indices', 'aspect_bert_indices'],
+        'aen_simple': ['text_raw_bert_indices', 'aspect_bert_indices'],
         'lcf_bert': ['text_bert_indices', 'bert_segments_ids', 'text_raw_bert_indices', 'aspect_bert_indices'],
     }
     initializers = {

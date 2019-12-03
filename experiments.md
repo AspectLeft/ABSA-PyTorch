@@ -79,6 +79,66 @@ aen_bert_simple-laptop-191201-1830.log
 > val_acc: 0.7712, val_f1: 0.7169
 >> test_acc: 0.7774, test_f1: 0.7327
 ```
+##### AEN_SIMPLE
+aen_simple-laptop-191202-1844.log
+```shell script
+> val_acc: 0.7414, val_f1: 0.6620
+>> test_acc: 0.7790, test_f1: 0.7462
+```
+##### AEN_SIMPLE, n_head=1
+aen_simple-laptop-191202-1859.log
+```shell script
+> val_acc: 0.7633, val_f1: 0.7201
+>> test_acc: 0.7837, test_f1: 0.7446
+```
+##### AEN_SIMPLE, n_head=2
+aen_simple-laptop-191202-1915.log
+```shell script
+> val_acc: 0.7367, val_f1: 0.6778
+>> test_acc: 0.7868, test_f1: 0.7524
+```
+##### AEN_SIMPLE, n_head=4
+aen_simple-laptop-191202-1936.log
+```shell script
+> val_acc: 0.7524, val_f1: 0.6912
+>> test_acc: 0.7853, test_f1: 0.7460
+```
+##### AEN_SIMPLE, n_head=16
+aen_simple-laptop-191202-1949.log
+```shell script
+> val_acc: 0.7696, val_f1: 0.7245
+>> test_acc: 0.7931, test_f1: 0.7412
+```
+##### AEN_SIMPLE, n_head=24
+aen_simple-laptop-191202-2008.log
+```shell script
+> val_acc: 0.7492, val_f1: 0.7165
+>> test_acc: 0.7821, test_f1: 0.7420
+```
+#### AEN_SIMPLE, lstm_hid=300
+aen_simple-laptop-191202-2027.log
+```shell script
+> val_acc: 0.7555, val_f1: 0.7108
+>> test_acc: 0.7915, test_f1: 0.7491
+```
+##### AEN_SIMPLE, lstm_hid=900
+aen_simple-laptop-191202-2042.log
+```shell script
+> val_acc: 0.7445, val_f1: 0.6857
+>> test_acc: 0.7884, test_f1: 0.7488
+```
+##### AEN_SIMPLE, lstm_layer=2
+aen_simple-laptop-191202-2059.log
+```shell script
+> val_acc: 0.7712, val_f1: 0.7347
+>> test_acc: 0.7712, test_f1: 0.7347
+```
+##### AEN_SIMPLE, lstm_layer=3
+aen_simple-laptop-191202-2111.log
+```shell script
+> val_acc: 0.6724, val_f1: 0.6061
+>> test_acc: 0.6959, test_f1: 0.5600
+```
 ## Twitter
 ##### AEN_BERT_SIMPLE (removed 2/3 parts)
 aen_bert_simple-twitter-191124-1823.log
