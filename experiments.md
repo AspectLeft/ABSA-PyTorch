@@ -193,6 +193,35 @@ aen_simple-laptop-191203-1116.log
 > val_acc: 0.7696, val_f1: 0.7191
 >> test_acc: 0.7868, test_f1: 0.7409
 ```
+##### AEN_SIMPLE, removed CDM, roberta, lstm_hid=300, lstm_layer=1, n_head=1
+aen_simple-laptop-191203-1247.log
+```shell script
+> val_acc: 0.7618, val_f1: 0.7076
+>> test_acc: 0.7947, test_f1: 0.7545
+```
+##### AEN_SIMPLE, removed CDM, roberta, lstm_hid=300, lstm_layer=1, n_head=8
+aen_simple-laptop-191203-1346.log
+```shell script
+> val_acc: 0.7696, val_f1: 0.7148
+>> test_acc: 0.7915, test_f1: 0.7549
+```
+##### AEN_SIMPLE, removed CDM, roberta, lstm_hid=300, lstm_layer=1, n_head=2
+aen_simple-laptop-191203-1420.log
+```shell script
+> val_acc: 0.7445, val_f1: 0.7008
+>> test_acc: 0.7806, test_f1: 0.7408
+```
+##### AEN_SIMPLE, removed CDM, roberta, lstm_hid=300, lstm_layer=1, n_head=4
+aen_simple-laptop-191203-1435.log
+```shell script
+> val_acc: 0.7696, val_f1: 0.7269
+>> test_acc: 0.8009, test_f1: 0.7674
+```
+##### AEN_SIMPLE, removed CDM, roberta, lstm_hid=300, lstm_layer=1, n_head=16
+```shell script
+> val_acc: 0.7586, val_f1: 0.7225
+>> test_acc: 0.7712, test_f1: 0.7216
+```
 ## Twitter
 ##### AEN_BERT_SIMPLE (removed 2/3 parts)
 aen_bert_simple-twitter-191124-1823.log

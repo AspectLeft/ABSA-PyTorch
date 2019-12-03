@@ -257,8 +257,8 @@ class AEN_SIMPLE(nn.Module):
         context, _ = self.bert(context)
         context = self.dropout(context)
         # CDM
-        context = torch.mul(context,
-                            self.squeeze_embedding(self.feature_dynamic_mask(inputs[0], inputs[1]), context_len))
+        # context = torch.mul(context,
+        #                     self.squeeze_embedding(self.feature_dynamic_mask(inputs[0], inputs[1]), context_len))
         target = self.squeeze_embedding(target, target_len)
         target, _ = self.bert(target)
         target = self.dropout(target)
