@@ -222,6 +222,42 @@ aen_simple-laptop-191203-1435.log
 > val_acc: 0.7586, val_f1: 0.7225
 >> test_acc: 0.7712, test_f1: 0.7216
 ```
+##### AEN_SIMPLE, removed CDM, roberta, lstm_hid=300, lstm_layer=1, n_head=24
+aen_simple-laptop-191203-1857.log
+```shell script
+> val_acc: 0.7759, val_f1: 0.7311
+>> test_acc: 0.7962, test_f1: 0.7605
+```
+##### AEN_SIMPLE, removed CDM, roberta, lstm_hid=600, lstm_layer=1, n_head=8
+aen_simple-laptop-191203-1913.log
+```shell script
+> val_acc: 0.7226, val_f1: 0.6941
+>> test_acc: 0.7915, test_f1: 0.7583
+```
+##### AEN_SIMPLE, removed CDM, roberta, lstm_hid=900, lstm_layer=1, n_head=8
+aen_simple-laptop-191203-1934.log
+```shell script
+> val_acc: 0.7680, val_f1: 0.7132
+>> test_acc: 0.7900, test_f1: 0.7530
+```
+##### AEN_SIMPLE, removed CDM, roberta, lstm_hid=300, lstm_layer=2, n_head=8
+aen_simple-laptop-191203-1948.log
+```shell script
+> val_acc: 0.7524, val_f1: 0.7095
+>> test_acc: 0.7712, test_f1: 0.7162
+```
+##### AEN_SIMPLE, removed CDM, roberta, lstm_hid=300, lstm_layer=3, n_head=8
+aen_simple-laptop-191203-1959.log
+```shell script
+> val_acc: 0.7680, val_f1: 0.7122
+>> test_acc: 0.7931, test_f1: 0.7585
+```
+##### AEN_SIMPLE, removed CDM, roberta, lstm_hid=300, lstm_layer=3, n_head=4
+aen_simple-laptop-191203-2017.log
+```shell script
+> val_acc: 0.7602, val_f1: 0.7248
+>> test_acc: 0.7821, test_f1: 0.7550
+```
 ## Twitter
 ##### AEN_BERT_SIMPLE (removed 2/3 parts)
 aen_bert_simple-twitter-191124-1823.log
@@ -235,6 +271,12 @@ aen_bert_simple-twitter-191124-2045.log
 > val_acc: 0.6344, val_f1: 0.6328
 >> test_acc: 0.7283, test_f1: 0.7187
 ```
+##### AEN_SIMPLE, removed CDM, roberta, lstm_hid=300, lstm_layer=1, n_head=4
+aen_simple-twitter-191203-2033.log
+```shell script
+> val_acc: 0.6272, val_f1: 0.6265
+>> test_acc: 0.7587, test_f1: 0.7420
+```
 ##Restaurant
 ##### AEN_BERT_SIMPLE (removed 2/3 parts)
 aen_bert_simple-restaurant-191124-1849.log
@@ -247,4 +289,10 @@ aen_bert_simple-restaurant-191124-2115.log
 ```shell script
 > val_acc: 0.7857, val_f1: 0.6735
 >> test_acc: 0.8107, test_f1: 0.6894
+```
+##### AEN_SIMPLE, removed CDM, roberta, lstm_hid=300, lstm_layer=1, n_head=4
+aen_simple-restaurant-191203-2102.log
+```shell script
+> val_acc: 0.7911, val_f1: 0.6584
+>> test_acc: 0.8268, test_f1: 0.7415
 ```
